@@ -1,0 +1,5 @@
+# Commands
+
+1. type -a echo
+2. type -a uptime
+3. echo $PATH

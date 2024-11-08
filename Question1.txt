@@ -1,0 +1,109 @@
+What is $ in shell?
+
+In shell scripting, the $ symbol is used for various purposes, mainly to refer to variables and arguments. Here’s a breakdown of its different uses:
+
+1. Accessing Variables
+When you define a variable in a shell script, you use $ to retrieve its value.
+
+
+#!/bin/bash
+
+name="Alice"
+echo "Hello, $name!"
+Explanation:
+
+name="Alice" defines a variable called name.
+$name accesses the value of name.
+
+Output:
+Hello, Alice!
+
+2. Positional Parameters (Script Arguments)
+When you pass arguments to a shell script, $ with numbers ($1, $2, etc.) is used to access these arguments.
+
+#!/bin/bash
+
+echo "First argument: $1"
+echo "Second argument: $2"
+Run this script as follows:
+
+$ bash script.sh Hello World
+
+Output:
+
+First argument: Hello
+Second argument: World
+
+$0 refers to the script's name.
+$1, $2, ... refer to the first, second, and subsequent arguments.
+$@ represents all arguments as a single string.
+$# represents the number of arguments passed.
+
+
+3. Special Variables
+There are several special variables that start with $ in shell scripting:
+
+$?: The exit status of the last command. 0 indicates success, while any other value indicates an error.
+$$: The process ID (PID) of the current shell.
+$!: The PID of the last background process.
+$*: All arguments passed to the script, treated as a single word.
+$@: All arguments passed to the script, but each argument is treated as a separate word.
+
+Example:
+
+#!/bin/bash
+
+# Run a command
+ls
+
+echo "Exit status of last command: $?"
+
+# Display the process ID
+echo "Current script PID: $$"
+
+4. Command Substitution
+The $ symbol can be used to capture the output of a command by using $().
+
+#!/bin/bash
+
+current_date=$(date)
+echo "Current date and time: $current_date"
+Explanation:
+
+$(date) runs the date command and stores its output in the current_date variable.
+Output:
+
+Current date and time: <actual date and time>
+
+
+5. Arithmetic Operations
+In shell scripting, $(( ... )) can be used to perform arithmetic calculations.
+
+#!/bin/bash
+
+a=5
+b=3
+result=$((a + b))
+echo "Sum: $result"
+Explanation:
+
+$((a + b)) calculates the sum of a and b and assigns it to result.
+
+Output:
+
+Sum: 8
+Summary Table of $ Uses
+
+******************* Usage Syntax	Description ***************************
+1. Variable access	$var	Access the value of a variable.
+2. Script arguments	$1, $2, ...	Access positional arguments.
+3. Special variables	$?, $$, $!	Access special system-related variables.
+4. Command output	$(command)	Capture the output of a command.
+5. Arithmetic	$((expression))	Perform arithmetic operations.
+6. Each of these uses allows $ to play a versatile role in shell scripting! Let me know if you'd like more detail on any part of this.
+
+
+
+
+
+
